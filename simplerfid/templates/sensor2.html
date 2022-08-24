@@ -1,0 +1,143 @@
+{% extends 'base2.html' %}
+{% block title %} Dashboard Hidroponik {% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- AREA CHART -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Control Lampu</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                                            Lampu Ruang Tamu</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        {% if led1 == 1 %} Menyala
+                                        {% else %} Mati
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="/led1/on" class="btn btn-outline-success btn-circle">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                        <a href="/led1/off" class="btn btn-outline-danger btn-circle">
+                                            <i class="fas fa-power-off"></i>
+                                        </a>
+                                    </div>
+                                </div><hr>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                                            Lampu Ruang Makan</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        {% if led2 == 1 %} Menyala
+                                        {% else %} Mati
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="/led2/on" class="btn btn-outline-success btn-circle">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                        <a href="/led2/off" class="btn btn-outline-danger btn-circle">
+                                            <i class="fas fa-power-off"></i>
+                                        </a>
+                                    </div>
+                                </div><hr>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                                            Lampu Kamar Tidur</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        {% if led3 == 1 %} Menyala
+                                        {% else %} Mati
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="/led3/on" class="btn btn-outline-success btn-circle">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                        <a href="/led3/off" class="btn btn-outline-danger btn-circle">
+                                            <i class="fas fa-power-off"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+
+                    <!-- /.col (LEFT) -->
+                    <div class="col-md-4">
+                        <!-- BAR CHART -->
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">Suhu Ruangan</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart">
+                                    <div id="g2"
+                                         style="min-height: 223px; height: 223px; max-height: 223px; max-width: 100%;"></div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- DONUT CHART -->
+                        <div class="card card-secondary">
+                            <div class="card-header">
+                                <h3 class="card-title">Kelembapan</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="g3"
+                                style="min-height: 223px; height: 223px; max-height: 223px; max-width: 100%;"></div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col (RIGHT) -->
+                </div>
+                
+      </div>
+      
+
+
+      {% block chart %} {% endblock %}
+      {% endblock %}
