@@ -73,6 +73,7 @@ def daftar():
         flash("Success")
     except:
         flash("Gagal Registrasi")
+        return redirect(url_for('register'))
     
     return redirect(url_for('login'))
 
