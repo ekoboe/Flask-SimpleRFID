@@ -66,12 +66,14 @@ def daftar():
         flash("Kartu telah terdaftar")
         return redirect(url_for('login'))
         
-    new_user = users(text=text, id=id)
-
-    db.session.add(new_user)
-    db.session.commit()
+    try:
+        new_user = users(text=text, id=id)
+        db.session.add(new_user)
+        db.session.commit()
+        flash("Success")
+    except:
+        flash("Gagal Registrasi")
     
-    flash("Success")
     return redirect(url_for('login'))
 
 @app.route('/logout')
